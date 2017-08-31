@@ -1,0 +1,4 @@
+Infra structure to quickly launch node with mongo db
+
+based on:
+	https://medium.com/@sunnykay/docker-development-workflow-node-express-mongo-4bb3b1f7eb1e
