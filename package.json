@@ -1,9 +1,17 @@
 {
-  "name": "naive",
-  "description": "A package using naive versioning",
-  "author": "A confused individual <iam@confused.com>",
+  "name": "node-mongo-starter",
+  "version": "0.0.1",
+  "description": "Starter for Node service with Mongo DB",
+  "author": "Tim Sloncz <tsloncz@gmail.com>",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
   "dependencies": {
     "express": "4.15.4"
+  },
+  "devDependencies": {
+    "nodemon": "1.11.0"
   },
   "engine": "node 0.4.1"
 }
