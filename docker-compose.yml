@@ -1,8 +1,22 @@
 version: "2"
+# Each service defined must specify exactly one of image or build.
 services:
   web:
     build: .
     volumes:
       - ./:/code
+    # Expose ports ("HOST":"CONTAINER"), or just the
+    # container port (a random host port will be chosen).
+    #
+    # Note: You may experience erroneous results
+    # when using a container port lower than 60
     ports:
       - "3000:3000"
+    links:
+      - mongo
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+
+# More Info -> # https://docs.docker.com/compose/yml/
