@@ -11,7 +11,7 @@ mongoose.connect("mongodb://mongo:27017");
 // middleware to use for all requests
 router.use(function(req, res, next) {
     // do logging
-    console.log('Something is happening.');
+    console.log('Log something useful.');
     next(); // make sure we go to the next routes and don't stop here
 });
 
@@ -22,11 +22,17 @@ app.get('/', function(req, res) {
 // on routes that end in /bears
 // ----------------------------------------------------
 router.route('/author')
-
-    // create a bear (accessed at POST http://localhost:8080/api/bears)
+    // Return all authors
     .get(function(req, res) {
-      res.json({ message: 'Authors' });
+        Author.find({}, function(err, authors) {
+            if (err) throw err;
+
+            // object of all the users
+            res.json(authors);
+        });
     });
+
+
 
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
